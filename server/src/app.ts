@@ -18,14 +18,15 @@ export function createApp() {
     }),
   );
 
-  // Basic abuse protection for the proxied SerpApi key.
+  // Basic abuse protection for the proxied SerpApi key (health checks exempt).
   app.use(
     '/api',
     rateLimit({
       windowMs: 60_000,
-      limit: 60,
+      limit: 100,
       standardHeaders: 'draft-7',
       legacyHeaders: false,
+      skip: (req) => req.path.endsWith('/health'),
       message: {
         error: 'RateLimit',
         message: 'Demasiadas peticiones, espera un momento e inténtalo de nuevo.',
