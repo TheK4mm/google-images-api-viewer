@@ -185,9 +185,3 @@ npm run lint        # ESLint
 npm run typecheck   # TypeScript (cliente + servidor)
 npm test            # Vitest (api, reducer de búsqueda, componentes)
 ```
-
----
-
-## Créditos
-
-Datos de imágenes proporcionados por [SerpApi — Google Images Results](https://serpapi.com).
